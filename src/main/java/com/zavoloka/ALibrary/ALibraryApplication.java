@@ -11,11 +11,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "com.zavoloka.ALibrary.repository")
 public class ALibraryApplication {
 
-	private static final Logger logger = LoggerFactory.getLogger(ALibraryApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(ALibraryApplication.class);
 
-	public static void main(String[] args) {
-		SpringApplication.run(ALibraryApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ALibraryApplication.class, args);
+    }
 
 
 }

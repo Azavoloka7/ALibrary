@@ -1,8 +1,13 @@
 package com.zavoloka.ALibrary.model;
 
-import lombok.Getter;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import javax.persistence.*;
+import lombok.Getter;
 
 @Getter
 @Entity
@@ -16,7 +21,7 @@ public class Manager {
     @Column(name = "name")
     private String name;
 
-    // Other fields, constructors, getters, and setters
+
 
     // Constructors
 

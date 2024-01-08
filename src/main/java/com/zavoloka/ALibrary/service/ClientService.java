@@ -1,9 +1,9 @@
 package com.zavoloka.ALibrary.service;
 
-import com.zavoloka.ALibrary.model.Client;
-
 import java.util.List;
 import java.util.Optional;
+
+import com.zavoloka.ALibrary.model.Client;
 
 public interface ClientService {
 
