@@ -13,7 +13,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.1</version>
-
 	</parent>
 
 	<properties>
@@ -35,46 +34,29 @@
 	<!-- Inherit defaults from Spring Boot -->
 
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>3.2.1</version> <!-- Use the appropriate version -->
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.4.12</version> <!-- Use the latest version available -->
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.13</version>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>3.2.1</version> <!-- Use the appropriate version -->
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.2.3</version> <!-- Use the latest version available -->
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.5.13</version>
 
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate.common</groupId>
-			<artifactId>hibernate-commons-annotations</artifactId>
-			<version>6.0.6.Final</version>
-			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>xml-apis</artifactId>
-					<groupId>xml-apis</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.logging</groupId>
-			<artifactId>jboss-logging</artifactId>
-			<version>3.3.2.Final</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<scope>test</scope>
+			</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-autoconfigure</artifactId>
@@ -100,7 +82,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.32</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -123,40 +104,15 @@
 		</dependency>
 
 
-	</dependencies>
+		</dependencies>
 
 
 	<build>
-
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.1.1</version>
-				<executions>
-					<execution>
-						<id>deploy-file</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>deploy-file</goal>
-						</goals>
-						<configuration>
-							<groupId>com.zavoloka</groupId>
-							<artifactId>ALibrary</artifactId>
-							<version>1.0-SNAPSHOT</version>
-							<packaging>jar</packaging>
-							<file>${project.build.directory}/ALibrary-1.0-SNAPSHOT.jar</file>
-							<url>file:///C:/Users/zavol/ZavolokaRepository/ALibrary/target/</url>
-							<repositoryId>local</repositoryId>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>3.2.0</version> <!-- Use the latest version -->
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<goals>
@@ -165,9 +121,9 @@
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
+
 	<distributionManagement>
 		<repository>
 			<id>github</id>
@@ -175,8 +131,9 @@
 		</repository>
 		<snapshotRepository>
 			<id>github-snapshots</id>
-			<url>https://maven.pkg.github.com/Azavoloka7/ALibrary/snapShots</url>
+			<url>https://maven.pkg.github.com/Azavoloka7/ALibrary</url>
 		</snapshotRepository>
 	</distributionManagement>
+
 
 </project>

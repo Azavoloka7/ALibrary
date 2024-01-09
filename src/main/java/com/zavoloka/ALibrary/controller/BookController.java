@@ -1,14 +1,13 @@
 package com.zavoloka.ALibrary.controller;
 
-import java.util.List;
-
+import com.zavoloka.ALibrary.model.Book;
+import com.zavoloka.ALibrary.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zavoloka.ALibrary.model.Book;
-import com.zavoloka.ALibrary.service.BookService;
+import java.util.List;
 
 @RestController
 @RequestMapping("/books")

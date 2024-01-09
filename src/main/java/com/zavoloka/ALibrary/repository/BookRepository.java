@@ -1,10 +1,9 @@
 package com.zavoloka.ALibrary.repository;
 
-import java.util.List;
-
+import com.zavoloka.ALibrary.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.zavoloka.ALibrary.model.Book;
+import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> displayAll();

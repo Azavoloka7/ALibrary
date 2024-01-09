@@ -1,13 +1,12 @@
 package com.zavoloka.ALibrary.service;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.zavoloka.ALibrary.model.Client;
+import com.zavoloka.ALibrary.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zavoloka.ALibrary.model.Client;
-import com.zavoloka.ALibrary.repository.ClientRepository;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientServiceImpl implements ClientService {

@@ -1,20 +1,20 @@
 package com.zavoloka.ALibrary;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import java.sql.*;
+import java.util.Arrays;
 @Getter
 @Setter
+
 public class DatabaseConnection {
+
+
+    private Object[] loadedData; // Array to save loaded database records
 
     // Replace these with your actual database credentials
     private String url = "jdbc:mysql://localhost:3308/ALibrary";
@@ -23,41 +23,43 @@ public class DatabaseConnection {
 
     public DatabaseConnection() {
         // Initialize the array when the class is instantiated
-        List<Object[]> loadedData = loadDatabase();
-        // Access the loaded data as needed
+        loadedData = loadDatabase();
     }
 
-    private List<Object[]> loadDatabase() {
-        List<Object[]> loadedData = new ArrayList<>();
-
+    private Object[] loadDatabase() {
+        ResultSet resultSet = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
 
-            try (Connection connection = DriverManager.getConnection(url, username, password);
-                 Statement statement = connection.createStatement()) {
+            if (connection != null) {
+                Statement statement = connection.createStatement();
+                resultSet = statement.executeQuery("SELECT * FROM books");
 
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM books");
-
-                // Convert ResultSet to a list of arrays
+                // Convert ResultSet to an array
                 int columnCount = resultSet.getMetaData().getColumnCount();
                 while (resultSet.next()) {
                     Object[] record = new Object[columnCount];
                     for (int i = 1; i <= columnCount; i++) {
                         record[i - 1] = resultSet.getObject(i);
                     }
-                    // Add the record to the list
-                    loadedData.add(record);
-                    // For simplicity, you can print the record here if needed
+                    // Add the record to the array or a data structure of your choice
+                    // For simplicity, I'll just print the record here
                     System.out.println("Loaded Record: " + Arrays.toString(record));
                 }
+
+                resultSet.close();
+                statement.close();
+                connection.close();
+                System.out.println("Connection closed");
             }
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 
-        // You can return the list or any other data structure as needed
-        return loadedData;
+        // You can return the array or any other data structure as needed
+        return new Object[0];
     }
 
     // Other methods...
@@ -65,5 +67,9 @@ public class DatabaseConnection {
     public static void main(String[] args) {
         // Create an instance of DatabaseConnection
         DatabaseConnection dbConnection = new DatabaseConnection();
+        // Access the loaded data array
+        Object[] loadedData = dbConnection.getLoadedData();
+
+
     }
 }
