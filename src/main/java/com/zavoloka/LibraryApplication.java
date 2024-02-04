@@ -48,10 +48,10 @@ public class LibraryApplication {
         // Create objects
         BookLibrary bookLibrary = initializeLibraryFromDatabase("jdbc:mysql://localhost:3308/ALibrary", "root", "Z@v010ka");
        // bookLibrary.saveAllBooksToDatabase();
-        Manager manager = new Manager(9, 29, "Alexei", "Nesterets", 0, 1);
-        Manager manager2 = new Manager(41, 32, "Evgenii", "Gombolevskii", 0, 5);
-        Client client = new Client(8, 100.00, 34, "Volodymyr", "Potaichuk", "123 Main St", "0990999");
-        Client client2 = new Client(10, 100.00, 32, "Ihor", "Bezluda", "13 Ushakov St", "0127745");
+        Manager manager = new Manager(9, 29, "Chuck", "Norris", 0, 1);
+        Manager manager2 = new Manager(41, 32, "Elvis", "Presley", 0, 5);
+        Client client = new Client(8, 100.00, 34, "Teddy", "Scrappy", "123 Main St", "0990999");
+        Client client2 = new Client(10, 100.00, 32, "Amanda", "Richardson", "13 Hreschatyck St", "0127745");
 
 
         // Display all books in the library
