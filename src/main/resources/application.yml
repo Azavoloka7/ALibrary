@@ -1,0 +1,15 @@
+# DataSource Configuration
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3308/ALibrary
+    username: root
+    password: Z@v010ka
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  logging:
+    level:
+      com.zavoloka: debug
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQLDialect
